@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <img src="../../../assets/bookimage/order.png" class="order" alt="order placed">
+  </div>
+  <div class="text">
+    hurray!!! your order is confirmed the order id is
+    #123456 save the order id for further
+    communication..
+  </div>
+  <div class="table" fxLayout="row" fxLayoutAlign="center center">
+    <table class="main-table">
+      <tr class="head">
+        <th>Email Us</th>
+        <th>Contact Us</th>
+        <th>Address</th>
+      </tr>
+      <tr class="row">
+        <td>admin@bookstore.com</td>
+        <td>+91 8163475881</td>
+        <td>42, 14th Main, 15th Cross, Sector 4 ,opp to BDA complex, near Kumarakom restaurant, HSR Layout, Bangalore
+          560034</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <button mat-raised-button class="button" (click)="route()">CONTINUE SHOPPING</button>
+  </div>
+</div>
+<app-footer></app-footer>

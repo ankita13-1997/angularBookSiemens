@@ -1,0 +1,90 @@
+.container{
+    width: 100%;
+    min-height: calc( 100vh - 1000px );
+} 
+.place{
+    width: 70%;
+    height: 30%;
+    border: 1px solid gray;
+    margin-left: 13%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.cardbox{
+    margin-top: 1%;
+    width :18%;
+    margin-left: 3%;
+}
+.img1{
+    width: 109px;
+    height: 125px;
+    padding: 10px;
+} 
+.book{
+    margin-left: 2%;
+}
+
+.line1{
+    margin-left: 15px;
+    font: normal normal normal 14px/19px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+.line2{
+    margin-left: 15px;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+
+.detail{
+    margin: 10px;
+}
+.placebutton{
+    margin-bottom: 2%;
+    margin-right: 2%;
+}
+.text{
+    margin-left: 3%;
+}
+
+.undisplayed{
+    top: 378px;
+    left: 177px;
+    width: 70%;
+    height: 60px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #DCDCDC;
+    border-radius: 1px;
+    opacity: 1;
+    margin-left: 13%;
+}
+
+.summary{
+    top: 378px;
+    left: 177px;
+    width: 70%;
+    height: 60px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #DCDCDC;
+    border-radius: 1px;
+    opacity: 1;
+    margin-left: 13%;
+    margin-top: 20px;
+    margin-bottom: 10.3%;
+}
+
+.delete:hover{
+    cursor: pointer;
+}
+
+.delete{
+    margin-left: 10px;
+}
+
+.mat-radio-button{
+    margin-left: 30px;
+    margin-top: 20px;
+}

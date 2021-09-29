@@ -1,0 +1,49 @@
+<mat-dialog-content class="mat-typography" fxLayout="column">
+    <mat-form-field class="example-full-width">
+        <input matInput [formControl]="bookName" placeholder="Book Name" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [formControl]="author" placeholder="Author" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [formControl]="description" placeholder="Description" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [formControl]="quantity" placeholder="Quantity" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [formControl]="price" placeholder="Price" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [formControl]="discount" placeholder="Discount Price" required>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="addBook()">Add Book</button>
+</mat-dialog-actions>
+
+<!-- <mat-dialog-content *ngIf="bookarr" class="mat-typography" fxLayout="column">
+    <mat-form-field class="example-full-width">
+        <input matInput [formControl]="bookName" value={{bookarr.bookName}} required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [formControl]="author" value={{bookarr.author}} required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [formControl]="description" value={{bookarr.description}} required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [formControl]="quantity" value={{bookarr.quantity}} required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [formControl]="price" value={{bookarr.price}} required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [formControl]="discount" value={{bookarr.discountPrice}} required>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="addBook()">Add Book</button>
+</mat-dialog-actions> -->

@@ -1,0 +1,105 @@
+<app-header></app-header>
+<div class="containtner">
+    <div class="place" >
+        <div class="cardbox" fxLayoutAlign="start center" >
+            My card({{length}})
+        </div>
+        <div fxLayout="row wrap" *ngFor="let cart of cartArray">
+            <div class="book">
+                <img class="img1" src="../../../assets/bookimage/Image 11@2x.png">
+            </div>
+            <div class="detail" fxLayout="column wrap">
+                <span class="line1"> {{cart.product_id.bookName}}</span><br>
+                <span class="line2"> {{cart.product_id.author}} </span><br>
+                <span class="line1">{{cart.product_id.price}} </span>
+                <div>
+                    <i class="material-icons md-18 delete" (click)="deleteBook(cart)">delete</i>
+                </div>
+            </div>
+        </div>
+        <div class="placebutton" fxLayout="row wrap" fxLayoutAlign="end end">
+            <button mat-raised-button color="primary" (click)="display(1)">PLACE ORDER</button>
+        </div>
+    </div>
+    <div *ngIf='show == 1' class="undisplayed" fxLayoutAlign="start center">
+        <span class="detaillabel" fxFlexOffset="5">
+            Customer Details
+        </span>
+    </div>
+    <div class="place" *ngIf='show == 2'>
+        <div class="cardbox" fxLayoutAlign="start center">
+            Customer Details
+        </div>
+        <div fxLayout="column wrap">
+            <div class="text" fxLayout="row wrap" fxLayoutGap="20px">
+                <mat-form-field>
+                    <mat-label> Name </mat-label>
+                    <input matInput type="text" [formControl]="name" placeholder="Enter Name" matInput required />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Phone number</mat-label>
+                    <input matInput type="number" [formControl]="phoneNo" placeholder="Enter PhoneNumber" matInput required />
+                </mat-form-field>
+            </div>
+            <div class="text" fxLayout="row wrap" fxLayoutGap="20px">
+                <mat-form-field>
+                    <mat-label> Pincode </mat-label>
+                    <input matInput type="number" [formControl]="pincode" placeholder="Enter Pincode" matInput required />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label> Locality </mat-label>
+                    <input matInput type="text" [formControl]="locality" placeholder="Enter Locality" matInput required />
+                </mat-form-field>
+            </div>
+            <div class="text" fxLayout="row wrap" fxLayoutGap="20px">
+                <mat-form-field>
+                    <mat-label> Address </mat-label>
+                    <input matInput type="text" [formControl]="address" placeholder="Enter Address" matInput required />
+                </mat-form-field>
+            </div>
+            <div class="text" fxLayout="row wrap" fxLayoutGap="20px">
+                <mat-form-field>
+                    <mat-label> City </mat-label>
+                    <input matInput type="text" [formControl]="city"  placeholder="Enter city" matInput required />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label> State </mat-label>
+                    <input matInput type="text" [formControl]="state" placeholder="Enter State" matInput required />
+                </mat-form-field>
+            </div>
+            <mat-radio-group aria-label="Select an option" [formControl]="type">
+                <mat-radio-button value="Home">Home</mat-radio-button>
+                <mat-radio-button value="Office">Office</mat-radio-button>
+                <mat-radio-button value="Other">Other</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="placebutton" fxLayout="row wrap" fxLayoutAlign="end end">
+            <button mat-raised-button color="primary" (click)="editDetails()"> CONTINUE </button>
+        </div>
+    </div>
+    <div *ngIf='show2 == 1' class="summary" fxLayoutAlign="start center">
+        <span class="detaillabel" fxFlexOffset="5">
+            Order Summary
+        </span>
+    </div>
+    <div class="place" *ngIf='show1 == 2'>
+        <div class="cardbox" fxLayoutAlign="start center">
+            Order Summery
+        </div>
+        <div fxLayout="row wrap" *ngFor="let cart of cartArray">
+            <div class="book">
+                <img class="img1" src="../../../assets/bookimage/Image 11@2x.png">
+            </div>
+            <div class="detail" fxLayout="column wrap">
+                <span class="line1"> {{cart.product_id.bookName}}</span><br>
+                <span class="line2"> {{cart.product_id.author}} </span><br>
+                <span class="line1"> {{cart.product_id.price}}</span>
+            </div>
+        </div>
+        <div class="placebutton" fxLayout="row wrap" fxLayoutAlign="end end">
+            <button mat-raised-button color="primary" (click)="addOrder()"> CHECKOUT </button>
+        </div>
+    </div>
+
+</div>
+<app-footer></app-footer>

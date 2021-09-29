@@ -1,0 +1,93 @@
+.container{
+    height: 87.6%;
+}
+
+.order{
+    width: 220px;
+    height: 250px;
+    opacity: 1;
+}
+
+.text{
+    top: 375px;
+    left: 506px;
+    width: 354px;
+    height: 66px;
+    text-align: center;
+    font: normal normal normal 18px/22px Lato;
+    letter-spacing: 0px;
+    color: #333232;
+    opacity: 1;
+}
+
+.table{
+    margin-top: 30px;
+}
+
+.table,td{
+    width: 600px;
+    border-collapse: collapse;
+}
+
+.main-table,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.head{
+    text-align: center;
+    font: normal normal medium 12px/15px Lato;
+    letter-spacing: 0px;
+    color: #333232;
+    opacity: 1;
+    background:#DCDCDC;
+}
+
+.row{
+    text-align: center;
+    font: normal normal normal 12px/15px Lato;
+    letter-spacing: 0px;
+    color: #333232;
+    opacity: 1;
+}
+
+.button{
+    top: 25px;
+    left: 15px;
+    width: 200px;
+    height: 35px;
+    background: #3371B5 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+}
+
+@media screen and (max-width: 470px) {
+    
+    .main-table{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 620px) {
+    .main-table{
+        width: 80%;
+    }
+    .order{
+        width: 50%;
+        height: 70%;
+    }
+}
+@media screen and (max-width: 400px) {
+    .main-table{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 350px) {
+    .main-table{
+        width: 30%;
+    }
+}
+@media screen and (max-width: 200px) {
+    .main-table{
+        width: 10%;
+    }
+}

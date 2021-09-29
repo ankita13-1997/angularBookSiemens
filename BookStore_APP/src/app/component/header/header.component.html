@@ -1,0 +1,24 @@
+<div class="main-container" >
+    <header class="toolbar" fxLayout="row" fxLayoutAlign="center center">
+        <div class="container" fxFlex=80 fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayoutAlign="space-between center">
+                <img src="../../../assets/icons/education.svg" alt="" class="image">
+                <span class="text" (click)="change()">BookStore</span>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <input type="text" class="search" placeholder="Search">
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+                <figure fxLayout="column" fxLayoutAlign="center center" class="profilediv">
+                    <img src="../../../assets/icons/user.svg" alt="profile" (click)="openDialog()" class="profileimg">
+                    <figcaption class="profiletext">Profile</figcaption>
+                </figure>
+                <figure fxLayout="column" fxLayoutAlign="center center">
+                    <img src="../../../assets/icons/supermarket.svg" alt="cart" (click)="route()" class="cartimg">    
+                    <figcaption class="carttext">Cart</figcaption>
+                </figure>
+            </div>
+            
+        </div>
+    </header>
+</div>
