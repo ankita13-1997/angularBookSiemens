@@ -72,12 +72,18 @@ export class UserSignUpLoginComponent implements OnInit {
         password : this.password.value
       }
 
-      this.user.login(reqObj).subscribe((res) => {
+      this.user.login(reqObj).subscribe((res:any) => {
+        localStorage.setItem('userToken',res.object);
+
+        
         console.log(res)
         arr = res
+        localStorage.setItem('fullName',arr.fullname);
+        console.log('full name',arr.fullname);
         console.log(arr.result.accessToken)
         this._snackBar.open(arr.message, "Cancel");
-        localStorage.setItem('userToken',arr.result.accessToken)
+    
+        
       },(error) => {
         console.log(error)
         this._snackBar.open(arr.message, "Cancel");

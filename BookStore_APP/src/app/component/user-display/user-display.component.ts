@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
 import { UserServiceService } from 'src/app/service/userservice/user-service.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {ActivatedRoute} from '@angular/router';
 
 
 interface Sort {
@@ -16,18 +17,23 @@ interface Sort {
 })
 export class UserDisplayComponent implements OnInit {
   selectedValue: string;
-
+  token : any;
   bookArray = [] as any
-  constructor(private admin : AdminserviceService,private user : UserServiceService,private _snackBar: MatSnackBar) { }
+  
 
   sorts: Sort[] = [
     {value: 'lowtohigh', viewValue: 'Price: Low to High'},
     {value: 'hightolow', viewValue: 'Price: Hight to Low'},
     {value: 'new', viewValue: 'Newest'}
   ];
+  constructor(private admin : AdminserviceService,private user : UserServiceService,private _snackBar: MatSnackBar,
+    ) { }
 
   ngOnInit(): void {
      this.getAllBooks();
+    //  this.token=this.actvatedroute.snapshot.paramMap.get('token');
+    //   console.log("the token ",this.token);
+    //   console.log("the rrequest token in cart ",this.token);
   }
 
   getAllBooks(){
@@ -63,13 +69,18 @@ export class UserDisplayComponent implements OnInit {
     let arr = []  as any;
 
     let reqObj = {
+      bookId : productId,
       quantity : 1,
-      productId
+      totalPrice:data.bookPrice
+      
     }
-    console.log("the book id in the cart ",productId);
 
+
+
+    console.log("the request object   in the cart ",reqObj);
+    
     this.user.addProduct(reqObj).subscribe((res) => {
-      console.log( "the added product to cart ",res)
+      console.log( "the added product to cart ",res);
       arr = res
       this._snackBar.open(arr.message, "Cancel");
     },(error) => {
