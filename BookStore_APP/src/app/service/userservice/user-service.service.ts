@@ -46,7 +46,7 @@ export class UserServiceService {
   }
 
   getCartItem(){
-    return this.http.get('get_cart_items',this.options)
+    return this.http.get('cart/allbooksincart',this.options)
   }
 
   addToWishlist(id : any, data: any){
@@ -54,14 +54,14 @@ export class UserServiceService {
   }
 
   deleteCartItem(id : any){
-    return this.http.delete('remove_cart_item/'+id,this.options)
+    return this.http.delete(`cart/deletecart/${id}`,this.options)
   }
 
   editDetails(data : any){
-    return this.http.put('edit_user',data,this.options)
+    return this.http.post('customer/addDetail_customer',data,this.options)
   }
 
   addOrder(data : any){
-    return this.http.post('add/order',data,this.options)
+    return this.http.post('order/addorder/',data,this.options)
   }
 }

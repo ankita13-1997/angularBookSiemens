@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
   show = 1;
   show1 = 0;
   show2 = 1;
-
+  
   constructor(private user : UserServiceService,private _snackBar: MatSnackBar,private router : Router) { }
 
   cartArray = [] as any;
@@ -28,6 +28,7 @@ export class CartComponent implements OnInit {
   city = new FormControl('',[Validators.required])
   state = new FormControl('',[Validators.required])
   type = new FormControl('',[Validators.required])
+  landmark=new FormControl('',[Validators.required])
 
   ngOnInit(): void {
     this.displayItems()
@@ -38,12 +39,25 @@ export class CartComponent implements OnInit {
   }
 
   displayItems(){
-    let arr = [] as any
+    let arr = [] as any;
+    let arrImg=[] as any;
+
+    arrImg=[
+      "../.../../../../assets/bookimage/Image 11.png",
+      "../.../../../../assets/bookimage/Image 7.png"
+    ]
     this.user.getCartItem().subscribe((res) => {
-      console.log(res)
+      console.log("the display Items is called");
+      console.log("the cart od books are ",res);
       arr = res
-      this.length = arr.result.length;
-      this.cartArray = arr.result
+      this.length = arr.result;
+      this.cartArray = arr;
+      for(let i=0 ;i<=arr.length;i++){
+        for(let j=0; j<=arrImg.length;j++){
+              arr[i].image=arrImg[i];
+        }
+
+      }
       console.log(this.length);
       console.log(this.cartArray);
     },(error) =>{
@@ -53,12 +67,12 @@ export class CartComponent implements OnInit {
 
   deleteBook(data : any){
     console.log(data);
-    let id  = data._id;
-    console.log(id);
+    let id  = data.bookDetailsModel.bookId;
+    console.log("the book to be deleted",id);
     
     this.user.deleteCartItem(id).subscribe((res : any) => {
       console.log(res)
-      this._snackBar.open(res.message, "Cancel");
+      this._snackBar.open(res.object, "Cancel");
       this.displayItems()
     },(error) => {
       console.log(error)
@@ -73,9 +87,11 @@ export class CartComponent implements OnInit {
 
       let reqObj = {
         addressType : this.type.value,
-        fullAddress : this.address.value,
+        address : this.address.value,
         city : this.city.value,
-        state : this.state.value
+        state : this.state.value,
+        landmark: this.landmark.value,
+        
       }
 
       console.log(reqObj);
@@ -91,26 +107,26 @@ export class CartComponent implements OnInit {
 
   addOrder(){
     console.log(this.cartArray)
+    let totalPrice:0.0
+    let moneyarr= [] as any;
+     moneyarr = this.cartArray;
+    
+    for(let cart of moneyarr){
+      
+             console.log("the total price in array",moneyarr.totalPrice);
+         
+            totalPrice=totalPrice+this.cartArray.totalPrice;
+          
+        
+    }
 
-    for(let cart of this.cartArray){
-      let reqObject = {
-        orders: [
-          {
-            product_id: cart._id,
-            product_name: cart.bookName,
-            product_quantity: cart.quantity,
-            product_price: cart.price
-          }
-        ]
-      }
-
-      console.log(reqObject)
-      this.user.addOrder(reqObject).subscribe((res) => {
+      console.log("the total price ",totalPrice);
+      this.user.addOrder(totalPrice).subscribe((res) => {
         console.log(res)
         this.router.navigate(['/orderPlaced'])
       },(error) => {
         console.log(error)
       })
     }
-  }
+  
 }

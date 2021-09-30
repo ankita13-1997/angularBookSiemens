@@ -6,12 +6,12 @@
         </div>
         <div fxLayout="row wrap" *ngFor="let cart of cartArray">
             <div class="book">
-                <img class="img1" src="../../../assets/bookimage/Image 11@2x.png">
+                <img class="img1" src={{cart.bookDetailsModel.image}}>
             </div>
             <div class="detail" fxLayout="column wrap">
-                <span class="line1"> {{cart.product_id.bookName}}</span><br>
-                <span class="line2"> {{cart.product_id.author}} </span><br>
-                <span class="line1">{{cart.product_id.price}} </span>
+                <span class="line1"> {{cart.bookDetailsModel.bookName}}</span><br>
+                <span class="line2"> {{cart.bookDetailsModel.authorName}} </span><br>
+                <span class="line1">{{cart.bookDetailsModel.bookPrice}} </span>
                 <div>
                     <i class="material-icons md-18 delete" (click)="deleteBook(cart)">delete</i>
                 </div>
@@ -32,14 +32,14 @@
         </div>
         <div fxLayout="column wrap">
             <div class="text" fxLayout="row wrap" fxLayoutGap="20px">
-                <mat-form-field>
+                <!-- <mat-form-field>
                     <mat-label> Name </mat-label>
                     <input matInput type="text" [formControl]="name" placeholder="Enter Name" matInput required />
-                </mat-form-field>
-                <mat-form-field>
+                </mat-form-field> -->
+                <!-- <mat-form-field>
                     <mat-label>Phone number</mat-label>
                     <input matInput type="number" [formControl]="phoneNo" placeholder="Enter PhoneNumber" matInput required />
-                </mat-form-field>
+                </mat-form-field> -->
             </div>
             <div class="text" fxLayout="row wrap" fxLayoutGap="20px">
                 <mat-form-field>
@@ -52,10 +52,18 @@
                 </mat-form-field>
             </div>
             <div class="text" fxLayout="row wrap" fxLayoutGap="20px">
+
+                <mat-form-field>
+                    <mat-label> LandMark </mat-label>
+                        <input matInput type="text" [formControl]="landmark" placeholder="Enter Landmark" matInput required />
+                    </mat-form-field>
+
                 <mat-form-field>
                     <mat-label> Address </mat-label>
                     <input matInput type="text" [formControl]="address" placeholder="Enter Address" matInput required />
                 </mat-form-field>
+                
+                
             </div>
             <div class="text" fxLayout="row wrap" fxLayoutGap="20px">
                 <mat-form-field>
@@ -88,12 +96,12 @@
         </div>
         <div fxLayout="row wrap" *ngFor="let cart of cartArray">
             <div class="book">
-                <img class="img1" src="../../../assets/bookimage/Image 11@2x.png">
+                <img class="img1" src={{cart.bookDetailsModel.image}}>
             </div>
             <div class="detail" fxLayout="column wrap">
-                <span class="line1"> {{cart.product_id.bookName}}</span><br>
-                <span class="line2"> {{cart.product_id.author}} </span><br>
-                <span class="line1"> {{cart.product_id.price}}</span>
+                <span class="line1"> {{cart.bookDetailsModel.bookName}}</span><br>
+                <span class="line2">  {{cart.bookDetailsModel.authorName}}</span><br>
+                <span class="line1"> {{cart.bookDetailsModel.bookPrice}}</span>
             </div>
         </div>
         <div class="placebutton" fxLayout="row wrap" fxLayoutAlign="end end">
