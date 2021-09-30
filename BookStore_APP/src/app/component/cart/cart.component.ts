@@ -107,15 +107,16 @@ export class CartComponent implements OnInit {
 
   addOrder(){
     console.log(this.cartArray)
-    let totalPrice:0.0
+    let totalPrice=0.0
     let moneyarr= [] as any;
      moneyarr = this.cartArray;
     
     for(let cart of moneyarr){
-      
-             console.log("the total price in array",moneyarr.totalPrice);
+             
+              console.log("the cart ", cart);
+             console.log("the total price in array",moneyarr);
          
-            totalPrice=totalPrice+this.cartArray.totalPrice;
+            totalPrice=totalPrice+cart.totalPrice;
           
         
     }

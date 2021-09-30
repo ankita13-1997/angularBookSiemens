@@ -62,6 +62,6 @@ export class UserServiceService {
   }
 
   addOrder(data : any){
-    return this.http.post('order/addorder/',data,this.options)
+    return this.http.post(`order/addorder/?totalPrice=${data}`,'',this.options)
   }
 }
