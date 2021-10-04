@@ -44,7 +44,10 @@ export class CartComponent implements OnInit {
 
     arrImg=[
       "../.../../../../assets/bookimage/Image 11.png",
-      "../.../../../../assets/bookimage/Image 7.png"
+      "../.../../../../assets/bookimage/Image 7.png",
+      "../.../../../../assets/bookimage/Image 10.png",
+      "../../../../../assets/bookimage/image36.png"
+
     ]
     this.user.getCartItem().subscribe((res) => {
       console.log("the display Items is called");
